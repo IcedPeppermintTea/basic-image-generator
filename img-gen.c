@@ -3,13 +3,14 @@ Main file for basic-image-generator
 IcedPeppermintTea
 */
 #include <stdio.h>
+#include "jpeglib.h"
 #include <stdint.h>
 
 typedef struct pixlRGB
 {
-    uint32_t rgbRed;
-    uint32_t rgbGreen;
-    uint32_t rgbBlue;
+    uint8_t rgbRed;
+    uint8_t rgbGreen;
+    uint8_t rgbBlue;
 } pixlRGB;
 
 int main(void)
@@ -18,9 +19,9 @@ int main(void)
     FILE *fptr; 
     int height = 1920;
     int width = 1080;
-    uint32_t red;
-    uint32_t green;
-    uint32_t blue;
+    uint8_t red = 152;
+    uint8_t green = 109;
+    uint8_t blue = 227;
 
     pixlRGB image[height][width]; // array to hold all of the rgb values for each pixel
 
@@ -35,8 +36,6 @@ int main(void)
         }
     }
 
-    // get RGB values
-
     // create file
     fptr = fopen("name.jpeg", "w");
     if (fptr == NULL)
@@ -44,7 +43,6 @@ int main(void)
         printf("Could not create file.\n");
     }
 
-        // with RGB values
 
     // Close files, flush data
     fclose(fptr);
