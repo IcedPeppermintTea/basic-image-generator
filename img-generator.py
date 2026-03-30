@@ -15,4 +15,4 @@ size = (1920, 1080)
 
 new_img = Image.new('RGB', size, (r,g,b))
 
-new_img.save('img_1.png')
+new_img.save('outputs/img_1.png')
